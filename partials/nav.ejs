@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="css/style.css">
+<nav class="navbar">
+   <div class="logo">
+      <span><i class='bx bxs-pizza' style='color:orangered;font-size:24px;'></i>
+
+      </span>
+      Pizza<br>
+      <small>delicious</small>
+
+   </div>
+   <div class="menu-items">
+      <ul class="list">
+         <li><a href="/">Home</a></li>
+         <li><a href="#Menu">Menu</a></li>
+         <li><a href="">Offers</a></li>
+         <% if(user) { %>
+            <li>
+               <form id="logout" action="/logout" method="POST">   
+               <a  onclick="document.getElementById('logout').submit()"   href="#">Logout</a>
+                </form>
+            </li>
+            <% } else { %>
+
+               <li><a href="/register">Register</a></li>
+               <li><a href="/login">Login</a></li>
+
+               <% }%>
+
+                  <li><a href="/cart" class="ed "><span class="cartCounter">
+                           <%= session.cart ? session.cart.totalQty : "" %>
+                        </span><i class='bx bx-cart-add'></i></a>
+                  </li>
+
+      </ul>
+   </div>
+</nav>
